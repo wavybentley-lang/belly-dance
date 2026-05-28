@@ -27,25 +27,39 @@ const dancingScript = Dancing_Script({
 export const metadata: Metadata = {
   metadataBase: new URL('https://dance-studio-prototype.vercel.app'),
 
-  title: 'Lovely Dance Beauty & Fitness  Vomero, Napoli',
+  applicationName: 'Vox Mundi ASD',
+  title: 'Vox Mundi ASD | Scuola di danza Napoli',
   description:
-    'Corsi di danza, fitness e benessere nel cuore del Vomero. ' +
-    'Uno spazio accogliente dove movimento, energia e femminilità si incontrano.',
+    'Vox Mundi Napoli, scuola di danza orientale e belly dance. Danza del Ventre, Tribal Fusion, Bollywood Dance e discipline artistiche nel cuore di Napoli.',
+  keywords: [
+    'Vox Mundi Napoli',
+    'belly dance Napoli',
+    'danza del ventre Napoli',
+    'danza orientale Napoli',
+    'Tribal Fusion Napoli',
+    'Bollywood Dance Napoli',
+    'Flamenco Arabo',
+    'scuola di danza Napoli',
+  ],
+  creator: 'Vox Mundi ASD',
+  publisher: 'Vox Mundi ASD',
+  alternates: {
+    canonical: '/',
+  },
 
   openGraph: {
     type: 'website',
     url: 'https://dance-studio-prototype.vercel.app',
-    siteName: 'Lovely Dance Beauty & Fitness',
-    title: 'Lovely Dance Beauty & Fitness  Vomero, Napoli',
+    siteName: 'Vox Mundi ASD',
+    title: 'Vox Mundi ASD | Scuola di danza Napoli',
     description:
-      'Corsi di danza, fitness e benessere nel cuore del Vomero. ' +
-      'Uno spazio accogliente dove movimento, energia e femminilità si incontrano.',
+      'Danza del Ventre, Tribal Fusion, Bollywood Dance e discipline artistiche in uno spazio elegante, femminile e accogliente nel cuore di Napoli.',
     images: [
       {
         url: '/additional/OG_image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Lovely Dance Beauty & Fitness  Vomero, Napoli',
+        width: 1636,
+        height: 819,
+        alt: 'Vox Mundi ASD - Scuola di danza Napoli',
       },
     ],
     locale: 'it_IT',
@@ -53,11 +67,15 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Lovely Dance Beauty & Fitness  Vomero, Napoli',
+    title: 'Vox Mundi ASD | Scuola di danza Napoli',
     description:
-      'Corsi di danza, fitness e benessere nel cuore del Vomero. ' +
-      'Uno spazio accogliente dove movimento, energia e femminilità si incontrano.',
-    images: ['/additional/OG_image.jpg'],
+      'Danza del Ventre, Tribal Fusion, Bollywood Dance e discipline artistiche in uno spazio elegante e accogliente nel cuore di Napoli.',
+    images: [
+      {
+        url: '/additional/OG_image.jpg',
+        alt: 'Vox Mundi ASD - Scuola di danza Napoli',
+      },
+    ],
   },
 
   icons: {
@@ -70,7 +88,6 @@ export const metadata: Metadata = {
     follow: true,
   },
 }
-
 export const viewport: Viewport = {
   themeColor: '#D4A853',
   width: 'device-width',
