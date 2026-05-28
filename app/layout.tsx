@@ -56,10 +56,11 @@ export const metadata: Metadata = {
       'Danza del Ventre, Tribal Fusion, Bollywood Dance e discipline artistiche in uno spazio elegante, femminile e accogliente nel cuore di Napoli.',
     images: [
       {
-        url: '/additional/OG_image.jpg',
-        width: 1636,
-        height: 819,
+        url: 'https://dance-studio-prototype.vercel.app/additional/OG_image.jpg',
+        width: 1200,
+        height: 630,
         alt: 'Vox Mundi ASD - Scuola di danza Napoli',
+        type: 'image/jpeg',
       },
     ],
     locale: 'it_IT',
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
       'Danza del Ventre, Tribal Fusion, Bollywood Dance e discipline artistiche in uno spazio elegante e accogliente nel cuore di Napoli.',
     images: [
       {
-        url: '/additional/OG_image.jpg',
+        url: 'https://dance-studio-prototype.vercel.app/additional/OG_image.jpg',
         alt: 'Vox Mundi ASD - Scuola di danza Napoli',
       },
     ],
