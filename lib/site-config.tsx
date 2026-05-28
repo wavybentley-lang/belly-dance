@@ -70,7 +70,7 @@ export const brand = {
     "Domenica: 9:00-17:00\n" +
     "Lunedì: 10:00-23:00\n" +
     "Martedì: 10:00-23:00",
-  copyright: "© 2026 Lovely Dance Beauty & Fitness",
+  copyright: "© 2026 Vox Mundi  ASD  Flora De Caro",
 }
 
 export const navLinks: NavLink[] = [

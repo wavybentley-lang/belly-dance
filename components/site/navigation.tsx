@@ -64,7 +64,7 @@ export function Navigation({
             </div>
             <a
               href="#contatti"
-              className="rounded-full bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-sm shadow-primary/25 transition-all hover:scale-105 hover:bg-[#E24C9F] active:scale-95"
+              className="rounded-full bg-[#E8430A] px-5 py-3 text-sm font-bold text-white shadow-sm shadow-primary/25 transition-all hover:scale-105 hover:bg-[#c93708] active:scale-95"
             >
               Iscriviti Ora
             </a>
