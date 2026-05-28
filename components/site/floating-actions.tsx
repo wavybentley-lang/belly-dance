@@ -21,19 +21,19 @@ export function FloatingActions({
 }: FloatingActionsProps) {
   return (
     <>
-      <div className="fixed right-0 bottom-0 left-0 z-50 flex h-14 items-center border-t border-border bg-[var(--template-nav-bg)] md:hidden">
-        <div className="flex w-full">
-          <a href={brand.phoneHref} className="flex flex-1 items-center justify-center gap-2 bg-transparent font-semibold text-foreground transition-colors">
+      <div className="fixed right-0 bottom-0 left-0 z-[80] flex h-16 items-center border-t border-primary/25 bg-[#12060E]/98 px-3 shadow-[0_-10px_30px_rgba(0,0,0,0.45)] backdrop-blur-md md:hidden">
+        <div className="flex w-full gap-2">
+          <a href={brand.phoneHref} className="flex flex-1 items-center justify-center gap-2 rounded-full border border-primary/30 bg-[#21100B] px-4 py-3 font-semibold text-[#F5EDD8] transition-colors hover:border-primary/55 hover:bg-[#2B150E]">
             <Phone size={18} />
             Chiamaci
           </a>
-          <a href="#contatti" className="flex flex-1 items-center justify-center bg-primary font-semibold text-primary-foreground transition-colors">
+          <a href="#contatti" className="flex flex-1 items-center justify-center rounded-full bg-primary px-4 py-3 font-bold text-primary-foreground shadow-sm shadow-primary/30 transition-colors hover:bg-[#A93226]">
             Iscriviti Ora
           </a>
         </div>
       </div>
 
-      <div className="h-14 md:hidden" />
+      <div className="h-16 md:hidden" />
 
       <div
         style={{ position: "fixed", zIndex: 9000 }}
@@ -53,8 +53,8 @@ export function FloatingActions({
           aria-label="Scrivici su WhatsApp"
           className="flex h-14 w-14 items-center justify-center rounded-full"
           style={{
-            background: "var(--template-whatsapp)",
-            boxShadow: "0 4px 12px rgba(37, 211, 102, 0.4)",
+            background: "#25D366",
+            boxShadow: "0 0 0 1px rgba(255,255,255,0.18), 0 8px 22px rgba(37, 211, 102, 0.42)",
             transform: whatsappHover ? "scale(1.1)" : "scale(1)",
             transition: "transform 0.2s ease",
             cursor: "pointer",
@@ -76,7 +76,7 @@ export function FloatingActions({
             opacity: cookieFading ? 0 : 1,
             transition: cookieFading ? "opacity 0.3s ease" : "opacity 0.5s ease",
           }}
-          className="bottom-14 flex flex-col items-start justify-between gap-3 border-t border-border bg-[var(--template-nav-bg)] px-6 py-3 md:bottom-0 md:flex-row md:items-center"
+          className="bottom-16 flex flex-col items-start justify-between gap-3 border-t border-border bg-[var(--template-nav-bg)] px-6 py-3 md:bottom-0 md:flex-row md:items-center"
         >
           <p className="line-clamp-2 max-w-2xl font-sans text-sm text-muted-foreground md:line-clamp-none">
             Questo sito utilizza cookie tecnici necessari al funzionamento. Continuando la navigazione accetti il loro utilizzo.

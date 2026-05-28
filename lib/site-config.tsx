@@ -287,8 +287,8 @@ export const scheduleBookingServices = [
 ]
 
 export const scheduleContactInfo = {
-  address: "Traversa Privata Sanseverino 15/A — Vomero, Napoli",
-  phone: "Tel. 331 4913070 / 349 8737169",
+  address: "Via Duomo, 61, 80138 Napoli NA",
+  phone: "370 118 6065",
 }
 
 export const pricingCards = [

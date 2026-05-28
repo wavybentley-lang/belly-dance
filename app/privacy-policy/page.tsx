@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { Facebook, Instagram, Menu, Music, Phone, X } from "lucide-react"
+import { ChevronRight, Facebook, Instagram, Menu, Music, Phone, X } from "lucide-react"
 
 import { brand, navLinks as siteNavLinks } from "@/lib/site-config"
 
@@ -82,7 +82,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <button
-              className="z-[60] p-2 text-[#F5EDD8] lg:hidden"
+              className="z-[9520] rounded-full border border-[#C9980A]/35 bg-[#12060E]/95 p-2 text-[#F5EDD8] shadow-lg shadow-black/40 backdrop-blur-md lg:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -92,31 +92,42 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div
-          className={`fixed inset-0 z-[50] bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          className={`fixed inset-0 z-[9500] flex min-h-[100dvh] w-screen items-center justify-center bg-[rgba(8,3,6,0.98)] px-4 py-20 backdrop-blur-xl transition-all duration-300 lg:hidden ${
             mobileMenuOpen ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
           onClick={() => setMobileMenuOpen(false)}
-        />
-        <div
-          className={`fixed top-0 right-0 bottom-0 z-[55] w-[300px] border-l border-[#C9980A]/20 bg-[#0F0E0A] transition-transform duration-300 ease-out lg:hidden ${
-            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
         >
-          <div className="flex h-full flex-col px-8 pt-32 pb-10">
-            <div className="flex flex-col">
+          <div
+            className={`w-[calc(100%-32px)] max-w-[420px] rounded-[1.35rem] border border-[#C9980A]/25 bg-[#12060E]/95 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.55)] transition-all duration-300 sm:p-7 ${
+              mobileMenuOpen ? "translate-y-0 scale-100 opacity-100" : "translate-y-4 scale-95 opacity-0"
+            }`}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-5 border-b border-[#C9980A]/15 pb-5 text-center">
+              <p className="text-[9px] font-medium tracking-[0.32em] text-[#F5EDD8]/65 uppercase">FLORA DE CARO PRESENTA</p>
+              <p
+                className="mt-1 font-serif text-[2.35rem] leading-[0.9] font-semibold tracking-wide text-[#F5EDD8]"
+                style={{ textShadow: "0 0 22px rgba(212,168,83,0.22)" }}
+              >
+                Vox Mundi
+              </p>
+              <p className="mt-2 text-[9px] font-semibold tracking-[0.28em] text-[#C9980A]/85 uppercase">ASD SCUOLA DI DANZA NAPOLI</p>
+            </div>
+            <div className="flex flex-col gap-2.5">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="py-4 text-xl font-medium text-[#F5EDD8] transition-colors hover:text-[#C9980A]"
+                  className="group flex min-h-14 items-center justify-between rounded-xl border border-[#C9980A]/20 bg-[#1A0B10]/90 px-4 py-3.5 text-base font-semibold tracking-wide text-[#F5EDD8] shadow-sm shadow-black/20 transition-all hover:border-[#C9980A]/55 hover:bg-[#241014] active:scale-[0.99]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
+                  <ChevronRight size={17} className="text-[#C9980A]/70 transition-transform group-hover:translate-x-0.5 group-hover:text-[#C9980A]" />
                 </a>
               ))}
               <a
                 href="/#contatti"
-                className="mt-6 rounded-sm bg-[#C9980A] px-6 py-4 text-center text-lg font-bold text-[#0F0E0A] transition-transform active:scale-95"
+                className="mt-5 rounded-full bg-[#C9980A] px-6 py-4 text-center text-lg font-bold text-[#0F0E0A] shadow-lg shadow-[#C9980A]/25 transition-transform hover:bg-[#D4A853] active:scale-95"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Iscriviti Ora
