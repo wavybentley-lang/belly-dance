@@ -1,4 +1,4 @@
-import { Clock, Facebook, Instagram, Mail, Map as MapIcon, Phone } from "lucide-react"
+import { Clock, Instagram, Mail, Map as MapIcon, Phone } from "lucide-react"
 import { type ReactNode } from "react"
 
 import { brand, type NavLink } from "@/lib/site-config"
@@ -42,10 +42,6 @@ export function Footer({ navLinks }: { navLinks: NavLink[] }) {
               <a href={brand.instagramHref} aria-label="Instagram" className="flex flex-col items-center gap-1 text-muted-foreground transition-colors duration-200 hover:text-primary">
                 <Instagram size={24} />
                 <span className="font-sans text-xs text-muted-foreground">Instagram</span>
-              </a>
-              <a href={brand.facebookHref} aria-label="Facebook" className="flex flex-col items-center gap-1 text-muted-foreground transition-colors duration-200 hover:text-primary">
-                <Facebook size={24} />
-                <span className="font-sans text-xs text-muted-foreground">Facebook</span>
               </a>
             </div>
           </div>

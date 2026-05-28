@@ -47,7 +47,7 @@ export function HeroSection() {
             href="https://wa.me/393498737169"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full border border-primary/30 bg-card/70 px-8 py-4 text-lg font-semibold text-foreground shadow-sm transition-colors hover:border-primary hover:bg-card"
+            className="rounded-full border border-primary/30 bg-card/70 px-8 py-4 text-lg font-semibold text-foreground shadow-sm transition-all hover:border-[#25D366] hover:bg-[#25D366] hover:text-white hover:shadow-[0_8px_22px_rgba(37,211,102,0.32)]"
           >
             <span className="inline-flex items-center justify-center gap-2">
               <MessageCircle size={20} />

@@ -1,9 +1,18 @@
 "use client"
 
 import { ChevronDown, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
-import { type Dispatch, type ReactNode, type SetStateAction } from "react"
+import { type Dispatch, type ReactNode, type SetStateAction, useState } from "react"
 
-import { brand, courseCategories } from "@/lib/site-config"
+import { brand } from "@/lib/site-config"
+
+const courseOptions = [
+  "Danza del Ventre (Belly Dance)",
+  "Tribal Fusion",
+  "Bollywood Dance",
+  "Flamenco Arabo",
+  "Pole Dance",
+  "Danze Polinesiane",
+]
 
 type ContactSectionProps = {
   isVisible: boolean
@@ -26,6 +35,9 @@ export function ContactSection({
   formNetworkError,
   setFormNetworkError,
 }: ContactSectionProps) {
+  const [courseDropdownOpen, setCourseDropdownOpen] = useState(false)
+  const [selectedCourse, setSelectedCourse] = useState("")
+
   return (
     <section
       id="contatti"
@@ -63,7 +75,7 @@ export function ContactSection({
                 const nome = (form.elements.namedItem("nome") as HTMLInputElement).value.trim()
                 const email = (form.elements.namedItem("email") as HTMLInputElement).value.trim()
                 const telefono = (form.elements.namedItem("telefono") as HTMLInputElement).value.trim()
-                const corso = (form.elements.namedItem("corso") as HTMLSelectElement).value
+                const corso = (form.elements.namedItem("corso") as HTMLInputElement).value
                 const errors: { [key: string]: boolean } = {}
                 if (!nome) errors.nome = true
                 if (!email) errors.email = true
@@ -85,6 +97,7 @@ export function ContactSection({
                   if (!response.ok) throw new Error("network")
                   setFormSubmitted(true)
                   form.reset()
+                  setSelectedCourse("")
                 } catch {
                   setFormNetworkError(true)
                 }
@@ -100,26 +113,54 @@ export function ContactSection({
                   <label htmlFor="course" className="mb-2 block text-[12px] font-medium tracking-wider text-muted-foreground uppercase">
                     Corso di Interesse
                   </label>
-                  <div className="relative">
-                    <select
+                  <div
+                    className="relative"
+                    onBlur={(event) => {
+                      if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setCourseDropdownOpen(false)
+                    }}
+                  >
+                    <input type="hidden" name="corso" value={selectedCourse} />
+                    <button
                       id="course"
-                      name="corso"
-                      className="w-full appearance-none rounded-sm bg-card px-4 py-3 pr-10 text-foreground transition-colors focus:border-primary focus:outline-none"
-                      style={{ border: `1px solid ${formErrors.corso ? "var(--template-error)" : "var(--border)"}` }}
-                      onFocus={() => setFormErrors((previous) => ({ ...previous, corso: false }))}
-                      defaultValue=""
+                      type="button"
+                      className="flex w-full items-center justify-between rounded-sm bg-[#080306] px-4 py-3 text-left text-[#F5EBDD] shadow-sm shadow-black/20 transition-colors hover:border-primary/60 focus:border-primary focus:outline-none"
+                      style={{ border: `1px solid ${formErrors.corso ? "var(--template-error)" : "rgba(212, 166, 79, 0.35)"}` }}
+                      onClick={() => {
+                        setCourseDropdownOpen((open) => !open)
+                        setFormErrors((previous) => ({ ...previous, corso: false }))
+                      }}
+                      aria-haspopup="listbox"
+                      aria-expanded={courseDropdownOpen}
                     >
-                      <option value="" disabled>Seleziona un corso</option>
-                      {courseCategories.flatMap((category) =>
-                        category.courses.map((course) => (
-                          <option key={`${category.label}-${course.title}`} value={course.title}>
-                            {course.title}
-                          </option>
-                        )),
-                      )}
-                      <option value="altro">Altro</option>
-                    </select>
-                    <ChevronDown size={16} className="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 text-muted-foreground" />
+                      <span className={selectedCourse ? "text-[#F5EBDD]" : "text-[#F5EBDD]/55"}>{selectedCourse || "Seleziona un corso"}</span>
+                      <ChevronDown
+                        size={16}
+                        className={`ml-3 shrink-0 text-primary/75 transition-transform ${courseDropdownOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {courseDropdownOpen && (
+                      <div
+                        className="absolute right-0 left-0 z-30 mt-2 overflow-hidden rounded-sm border border-primary/35 bg-[#080306] shadow-2xl shadow-black/50"
+                        role="listbox"
+                      >
+                        {courseOptions.map((course) => (
+                          <button
+                            key={course}
+                            type="button"
+                            className="block w-full border-b border-primary/18 px-4 py-3 text-left text-sm font-medium text-[#F5EBDD] transition-colors last:border-b-0 hover:bg-primary/15 focus:bg-primary/15 focus:outline-none"
+                            onClick={() => {
+                              setSelectedCourse(course)
+                              setCourseDropdownOpen(false)
+                              setFormErrors((previous) => ({ ...previous, corso: false }))
+                            }}
+                            role="option"
+                            aria-selected={selectedCourse === course}
+                          >
+                            {course}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -135,14 +176,17 @@ export function ContactSection({
                   placeholder="Raccontaci di te..."
                 />
               </div>
-              <button type="submit" className="w-full rounded-sm bg-primary py-4 text-lg font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+              <button
+                type="submit"
+                className="w-full cursor-pointer rounded-full bg-primary py-4 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:-translate-y-0.5 hover:bg-[#A93226] hover:shadow-primary/35 active:translate-y-0 active:scale-[0.99]"
+              >
                 Invia Messaggio
               </button>
               <a
                 href={brand.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-sm border border-primary/30 bg-card py-4 text-lg font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                className="flex w-full items-center justify-center gap-2 rounded-full border border-[#25D366] bg-[#25D366] py-4 text-lg font-bold text-white shadow-lg shadow-[#25D366]/25 transition-all hover:-translate-y-0.5 hover:bg-[#1DB954] hover:shadow-[#25D366]/35 active:translate-y-0 active:scale-[0.99]"
               >
                 <MessageCircle size={20} />
                 Scrivici su WhatsApp
